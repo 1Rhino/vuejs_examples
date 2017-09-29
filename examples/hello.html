@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src='../jquery-3.2.1.min.js'></script>
+    <script src='../Vue.js'></script>
+    <link rel="stylesheet" media="all" href="css.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <input type="text" v-model='message'>
+      <br><br>
+
+      <div v-bind:title='title_message'>
+       Hover on me for a second.
+      </div>
+
+      <div v-if='seen'>
+        Now you see me.
+      </div>
+
+      <label for="">Todo:</label>
+      <ul v-for='todo in todos'>
+        <li>{{ todo.text }}</li>
+      </ul>
+
+      <button v-on:click='reverseMessage'>
+        Reverser message!
+      </button>
+
+      <ol>
+        <todo-item
+          v-for='item in groceryList'
+          v-bind:todo='item'
+          v-bind:key='item.id'
+        >
+        </todo-item>
+      </ol>
+
+    </div>
+    <script src='js.js'></script>
+  </body>
+</html>
